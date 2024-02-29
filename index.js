@@ -4,6 +4,7 @@ const fs = require('fs');
 (async () => {
   const browser = await puppeteer.launch({ 
     executablePath: '.cache/puppeteer/chrome/win64-122.0.6261.69/chrome-win64/chrome.exe', 
+    // executablePath: '.cache/puppeteer/firefox/win64-125.0a1/firefox/firefox.exe',
     ignoreDefaultArgs: ['--disable-extensions'], 
     args: ['--enable-gpu'], 
     headless: false, 
