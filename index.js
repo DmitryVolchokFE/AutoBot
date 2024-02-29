@@ -2,7 +2,14 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  const browser = await puppeteer.launch({ ignoreDefaultArgs: ['--disable-extensions'], args: ['--no-sandbox'], headless: false, protocolTimeout: 0 });
+  const browser = await puppeteer.launch({ 
+    executablePath: '.cache/puppeteer/chrome/win64-122.0.6261.69/chrome-win64/chrome.exe', 
+    ignoreDefaultArgs: ['--disable-extensions'], 
+    args: ['--enable-gpu'], 
+    headless: false, 
+    protocolTimeout: 0 
+  });
+
   const page = await browser.newPage();
   await page.goto('https://plgeubet.com/ru');
   await wait(40000);
