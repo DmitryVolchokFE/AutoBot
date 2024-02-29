@@ -1,13 +1,19 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const browserPath = '.cache/puppeteer/chrome/win64-122.0.6261.69/chrome-win64/chrome.exe';
 
 (async () => {
   const browser = await puppeteer.launch({ 
-    executablePath: '.cache/puppeteer/chrome/win64-122.0.6261.69/chrome-win64/chrome.exe', 
-    // executablePath: '.cache/puppeteer/firefox/win64-125.0a1/firefox/firefox.exe',
-    ignoreDefaultArgs: ['--disable-extensions'], 
-    args: ['--enable-gpu'], 
-    headless: false, 
+    // executablePath: '.cache/puppeteer/chrome/win64-122.0.6261.69/chrome-win64/chrome.exe', 
+    // // executablePath: '.cache/puppeteer/firefox/win64-125.0a1/firefox/firefox.exe',
+    // ignoreDefaultArgs: ['--disable-extensions'], 
+    // args: ['--enable-gpu'], 
+    // headless: false, 
+    // protocolTimeout: 0 
+    headless: true,
+    ignoreHTTPSErrors: true,
+    executablePath: browserPath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
     protocolTimeout: 0 
   });
 
